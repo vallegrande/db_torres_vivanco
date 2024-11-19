@@ -72,3 +72,24 @@ SELECT * FROM enrollment;
 SELECT * FROM seller;
 SELECT * FROM student;
 SELECT * FROM teachers;
+
+-- Reference: enrollment_campus (table: enrollment)
+ALTER TABLE enrollment ADD CONSTRAINT enrollment_campus
+    FOREIGN KEY (campus_code)
+    REFERENCES campus (code);
+
+-- Reference: enrollment_careers (table: enrollment)
+ALTER TABLE enrollment ADD CONSTRAINT enrollment_careers
+    FOREIGN KEY (careers_id)
+    REFERENCES careers (id);
+
+-- Reference: enrollment_seller (table: enrollment)
+ALTER TABLE enrollment ADD CONSTRAINT enrollment_seller
+    FOREIGN KEY (seller_code)
+    REFERENCES seller (code);
+
+-- Reference: enrollment_student (table: enrollment)
+ALTER TABLE enrollment ADD CONSTRAINT enrollment_student
+    FOREIGN KEY (student_id)
+    REFERENCES student (id);
+
